@@ -1,0 +1,50 @@
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+
+ScreenManager:
+	transition: SlideTransition()
+	HomeScreen:
+	GlobalScreen:
+
+<HomeScreen>:
+	name: 'home_screen'
+	
+	MDBottomNavigation:
+
+		MDBottomNavigationItem:
+			name: "screen 1"
+			text: 'Search'
+			icon: 'earth'
+			
+			MDLabel:
+				text: 'Write First Letter Capital'
+				halign: 'center'
+				pos_hint: {'center_x': 0.5,'center_y':0.8}
+				font_style: 'H6'
+
+			MDTextField:
+				id: country
+				size_hint: 1, None
+				height: "30dp"
+				hint_text: "Country"
+				pos_hint: {'center_x':0.5, 'center_y':0.5}
+				size_hint_x: None
+				width: 350
+				line_color_focus: 0, 0, 1, 1
+
+			MDRectangleFlatButton:
+				text: 'Find'
+				pos_hint: {'center_x': 0.5, 'center_y': 0.40}
+				on_release: root.start()
+
+		MDBottomNavigationItem:
+			name: "screen 12"
+			text: 'Result'
+			icon: 'account-card-details'
+			
+			ScrollView:
+				MDList:
+					id: scroll
+	
+
+<GlobalScreen>:
+	name: 'global_screen'
